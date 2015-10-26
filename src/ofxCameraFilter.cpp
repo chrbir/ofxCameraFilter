@@ -16,8 +16,19 @@ ofSetLogLevel(OF_LOG_VERBOSE);
 	preblur.allocate(width, height);
 	postblur.allocate(width, height);
 	blur.setup(width, height, 16, .1, 1, .8);
+	
 	shader.setupShaderFromSource(GL_FRAGMENT_SHADER, cameraFilterSource);
 	shader.linkProgram();
+	
+	// Disable all functions
+	setAberrationAmount(0);
+	setBlurBrightness(0);
+	setBlurRotation(0);
+	setBlurScale(0);
+	setDistortion(0);
+	setNoiseAmount(0);
+	setVignetteSize(100);
+	setVignetteSharpness(0);
 }
 
 void ofxCameraFilter::begin() {
